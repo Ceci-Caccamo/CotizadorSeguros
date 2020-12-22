@@ -16,12 +16,18 @@ Puede necesitar primero npm install.
 
 ### https://cotizadorseguroscaccamo.netlify.app
 
-## Imagenes
+## Imágenes
 
 ### Vista de Inicio
 ![Alt text](./asset/Inicio.png?raw=true "Inicio")
 
-### Vista Cotizando
+### Vista Cotizando Marca
+![Alt text](./asset/CotizandoMarcas.png?raw=true "CotizandoMarca")
+
+### Vista Cotizando Año
+![Alt text](./asset/CotizandoYear.png?raw=true "Cotizando Año")
+
+### Vista "Pensando"
 ![Alt text](./asset/Cotizando.png?raw=true "Cotizando")
 
 ### Vista de Presupuesto
