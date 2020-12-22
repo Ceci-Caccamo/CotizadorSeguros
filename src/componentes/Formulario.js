@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "@emotion/styled";
-import { obtenerDiferenciaYear } from "../helper";
+import PropTypes from "prop-types";
+import { obtenerDiferenciaYear, calcularMarca, obtenerPlan } from "../helper";
 
 const Campo = styles.div`
 display:flex;
@@ -49,7 +50,7 @@ const Error = styles.div`
   margin-bottom:2rem
 `;
 
-const Formulario = () => {
+const Formulario = ({ guardarResumen, guardarCargando }) => {
   const [datos, guardarDatos] = useState({
     marca: "",
     year: "",
@@ -83,22 +84,36 @@ const Formulario = () => {
     //obtener diferencia de años
 
     const diferencia = obtenerDiferenciaYear(year);
-    console.log(diferencia);
+    
 
     //por cada año hay que restar el 3%
     resultado -= (diferencia * 3 * resultado) / 100;
-    console.log(resultado)
+    
 
     //Americano 15% de incremento al valor actual
-
     //asiatico 5%
-
     //Europeo 30%
+    resultado = calcularMarca(marca) * resultado;
+    
 
     //Basico aumenta 20%
     //Completo 50%
+    const incrementoPlan = obtenerPlan(plan);
+    
+    resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
 
-    //Total
+    guardarCargando(true);
+
+    setTimeout(() => {
+      //Elimina el spinner
+      guardarCargando(false);
+
+      //pasa la informacion al componente principal
+      guardarResumen({
+        cotizacion: Number(resultado),
+        datos,
+      });
+    }, 3000);
   };
 
   return (
@@ -118,7 +133,7 @@ const Formulario = () => {
         <Label>Año</Label>
         <Select name="year" value={year} onChange={obtenerInformacion}>
           <option value="">-- Seleccione --</option>
-          <option value="2021">2021</option>
+          {/* <option value="2021">2021</option> */}
           <option value="2020">2020</option>
           <option value="2019">2019</option>
           <option value="2018">2018</option>
@@ -152,6 +167,11 @@ const Formulario = () => {
       <Boton type="submit">Cotizar</Boton>
     </form>
   );
+};
+
+Formulario.propTypes = {
+  guardarResumen: PropTypes.func.isRequired,
+  guardarCargando: PropTypes.func.isRequired,
 };
 
 export default Formulario;
