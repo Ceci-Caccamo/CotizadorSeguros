@@ -23,7 +23,7 @@ const Resumen = ({ datos }) => {
         <h2>Resumen de cotizacion</h2>
         <ul>
           <li>Marca: {primerMayuscula(marca)}</li>
-          <li>plan: {primerMayuscula(plan)} </li>
+          <li>Plan: {primerMayuscula(plan)} </li>
           <li>Año del auto: {year} </li>
         </ul>
       
