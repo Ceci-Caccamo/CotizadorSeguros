@@ -7,13 +7,13 @@ export function obtenerDiferenciaYear(year) {
 export function calcularMarca(marca) {
   let incremento;
   switch (marca) {
-    case "europeo":
+    case "Renault":
       incremento = 1.3;
       break;
-    case "americano":
+    case "Audi":
       incremento = 1.15;
       break;
-    case "asiatico":
+    case "Fiat":
       incremento = 1.05;
       break;
     default:
@@ -24,7 +24,7 @@ export function calcularMarca(marca) {
 
 //Calcula el tipo de seguro
 export function obtenerPlan(plan) {
-  return plan === "basico" ? 1.2 : 1.5;
+  return plan === "Terceros" ? 1.2 : 1.5;
 }
 
 //Muestra primer letra en mayuscula

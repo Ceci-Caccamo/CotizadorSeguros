@@ -123,9 +123,9 @@ const Formulario = ({ guardarResumen, guardarCargando }) => {
         <Label>Marca</Label>
         <Select name="marca" value={marca} onChange={obtenerInformacion}>
           <option value="">--Seleccione--</option>
-          <option value="americano">Americano</option>
-          <option value="europeo">Europeo</option>
-          <option value="asiatico">Asiatico</option>
+          <option value="Renault">Renault</option>
+          <option value="Audi">Mercedes Benz</option>
+          <option value="Fiat">Fiat</option>
         </Select>
       </Campo>
 
@@ -133,7 +133,7 @@ const Formulario = ({ guardarResumen, guardarCargando }) => {
         <Label>Año</Label>
         <Select name="year" value={year} onChange={obtenerInformacion}>
           <option value="">-- Seleccione --</option>
-          {/* <option value="2021">2021</option> */}
+          <option value="2021">2021</option> 
           <option value="2020">2020</option>
           <option value="2019">2019</option>
           <option value="2018">2018</option>
@@ -150,19 +150,19 @@ const Formulario = ({ guardarResumen, guardarCargando }) => {
         <InputRadio
           type="radio"
           name="plan"
-          value="basico"
-          checked={plan === "basico"}
+          value="Terceros"
+          checked={plan === "Terceros"}
           onChange={obtenerInformacion}
         />
-        Basico
+        Terceros
         <InputRadio
           type="radio"
           name="plan"
-          value="completo"
-          checked={plan === "completo"}
+          value="Todo Riesgo"
+          checked={plan === "Todo Riesgo"}
           onChange={obtenerInformacion}
         />
-        Completo
+        Todo Riesgo
       </Campo>
       <Boton type="submit">Cotizar</Boton>
     </form>
